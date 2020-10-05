@@ -1,0 +1,142 @@
+{
+  "version": 1,
+  "projects": {
+    "meetup": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      },
+      "root": "apps/meetup",
+      "sourceRoot": "apps/meetup/src",
+      "prefix": "hackfest",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/apps/meetup",
+            "index": "apps/meetup/src/index.html",
+            "main": "apps/meetup/src/main.ts",
+            "polyfills": "apps/meetup/src/polyfills.ts",
+            "tsConfig": "apps/meetup/tsconfig.app.json",
+            "aot": true,
+            "assets": ["apps/meetup/src/favicon.ico", "apps/meetup/src/assets"],
+            "styles": ["apps/meetup/src/styles.scss"],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/meetup/src/environments/environment.ts",
+                  "with": "apps/meetup/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "meetup:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "meetup:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "meetup:build"
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["apps/meetup/src/**/*.ts"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "apps/meetup/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "meetup-e2e": {
+      "root": "apps/meetup-e2e",
+      "sourceRoot": "apps/meetup-e2e/src",
+      "projectType": "application",
+      "architect": {
+        "e2e": {
+          "builder": "@nrwl/cypress:cypress",
+          "options": {
+            "cypressConfig": "apps/meetup-e2e/cypress.json",
+            "tsConfig": "apps/meetup-e2e/tsconfig.e2e.json",
+            "devServerTarget": "meetup:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "meetup:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["apps/meetup-e2e/**/*.{js,ts}"]
+          }
+        }
+      }
+    }
+  },
+  "cli": {
+    "defaultCollection": "@nrwl/angular"
+  },
+  "schematics": {
+    "@nrwl/angular": {
+      "application": {
+        "linter": "eslint"
+      },
+      "library": {
+        "linter": "eslint"
+      },
+      "storybook-configuration": {
+        "linter": "eslint"
+      }
+    },
+    "@nrwl/angular:application": {
+      "unitTestRunner": "jest",
+      "e2eTestRunner": "cypress"
+    },
+    "@nrwl/angular:library": {
+      "unitTestRunner": "jest"
+    }
+  },
+  "defaultProject": "meetup"
+}
