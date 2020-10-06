@@ -1,0 +1,16 @@
+<ng-template #content><ng-content></ng-content></ng-template>
+
+<button *ngIf="!isButton; else buttonTmpl" type="submit">
+  <ng-container *ngTemplateOutlet="content"></ng-container>
+  <svg viewBox="0 0 320 140">
+    <path d="M10,10 l300,0 0,120 -300,0 0,-120"></path>
+  </svg>
+</button>
+
+<ng-template #buttonTmpl>
+  <ng-container *ngTemplateOutlet="content"></ng-container>
+  <svg viewBox="0 0 320 140">
+    <path d="M10,10 l300,0 0,120 -300,0 0,-120"></path>
+  </svg>
+</ng-template>
+
