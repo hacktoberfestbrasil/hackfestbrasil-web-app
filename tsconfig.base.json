@@ -15,7 +15,9 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@hackfest/common-forms": ["libs/common/forms/src/index.ts"]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }

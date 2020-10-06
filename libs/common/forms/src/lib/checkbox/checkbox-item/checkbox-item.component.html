@@ -1,0 +1,21 @@
+<div class="hackfest-checkbox">
+  <input
+    #input
+    [id]="id"
+    name="checks"
+    type="checkbox"
+    class="cdk-visually-hidden"
+    [value]="value"
+    [attr.aria-checked]="el?.checked"
+    (change)="onChangeEvent($event)"
+  />
+  <label [attr.for]="id">
+    <ng-content></ng-content>
+
+    <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+      <path
+        d="M22.3,61.3c5.7,4.1,13.2,11.8,16.7,18C53,60.5,66,41,77.7,20.8"
+      />
+    </svg>
+  </label>
+</div>
