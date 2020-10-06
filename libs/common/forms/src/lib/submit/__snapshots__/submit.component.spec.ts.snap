@@ -1,0 +1,76 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`HackfestSubmitComponent Views should create button disabled 1`] = `
+HackfestSubmitComponent {
+  "_disabled": "true",
+  "_el": ElementRef {
+    "nativeElement": <button
+      disabled="true"
+      hackfest-submit=""
+    >
+      
+      
+      
+      Submit
+      
+      <svg
+        viewBox="0 0 320 140"
+      >
+        <path
+          d="M10,10 l300,0 0,120 -300,0 0,-120"
+        />
+      </svg>
+      
+    </button>,
+  },
+}
+`;
+
+exports[`HackfestSubmitComponent Views should create button snapshot 1`] = `
+HackfestSubmitComponent {
+  "_el": ElementRef {
+    "nativeElement": <button
+      hackfest-submit=""
+    >
+      
+      
+      
+      Submit
+      
+      <svg
+        viewBox="0 0 320 140"
+      >
+        <path
+          d="M10,10 l300,0 0,120 -300,0 0,-120"
+        />
+      </svg>
+      
+    </button>,
+  },
+}
+`;
+
+exports[`HackfestSubmitComponent Views should create snapshot 1`] = `
+HackfestSubmitComponent {
+  "_el": ElementRef {
+    "nativeElement": <hackfest-submit>
+      
+      
+      <button
+        type="submit"
+      >
+        
+        
+        <svg
+          viewBox="0 0 320 140"
+        >
+          <path
+            d="M10,10 l300,0 0,120 -300,0 0,-120"
+          />
+        </svg>
+      </button>
+      
+    </hackfest-submit>,
+  },
+}
+`;

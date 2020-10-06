@@ -1,0 +1,50 @@
+:host {
+  --hackfest-button-width: 300px;
+  --hackfest-button-height: 120px;
+  --hackfest-button-font-size: 32px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  &,
+  button {
+    width: var(--hackfest-button-width);
+    height: var(--hackfest-button-height);
+    border: none;
+    color: #ffffff50;
+    background-color: #93c2db25;
+    cursor: pointer;
+    padding: 0;
+    position: relative;
+    line-height: var(--hackfest-button-height);
+    font-size: var(--hackfest-button-font-size);
+    font-weight: bold;
+    transition: color 400ms ease-in-out, background-color 600ms ease 400ms;
+  }
+
+  & svg,
+  button svg {
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    width: calc(var(--hackfest-button-width) + 20px);
+    height: calc(var(--hackfest-button-height) + 20px);
+    fill: none;
+    stroke: #fff;
+    stroke-linecap: round;
+    stroke-dasharray: 840;
+    stroke-dashoffset: 840;
+    stroke-width: 5;
+    transition: 600ms stroke-dashoffset ease;
+  }
+
+  &:hover,
+  button:hover {
+    color: rgba(255, 138, 226, 1);
+    background-color: #93c2db50;
+    svg {
+      stroke-dashoffset: 0;
+    }
+  }
+}
